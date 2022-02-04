@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     
     @IBOutlet var startButton: UIButton!
     
-//    var activeLight = ActiveLight.red
+    var activeLight = ActiveLight.red
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,31 +27,19 @@ class ViewController: UIViewController {
     @IBAction func startButtonPressed() {
         startButton.setTitle("Next", for: .normal)
         
-        if redLight.alpha == 0.3 {
-            redLight.alpha = 1
-        }
-//        setStartAlpha()
-//        if greenLight.alpha == 0.3 && yellowLight.alpha == 0.3 {
-//            redLight.alpha = 1
-//        } else if redLight.alpha == 1 {
-//            redLight.alpha = 0.3
-//            yellowLight.alpha = 1
-//        } else if yellowLight.alpha == 1 {
-//            yellowLight.alpha = 0.3
-//            greenLight.alpha = 1
-//        }
+        setStartAlpha()
         
-//        switch activeLight {
-//        case .red:
-//            redLight.alpha = 1
-//            activeLight = .yellow
-//        case .yellow:
-//            yellowLight.alpha = 1
-//            activeLight = .green
-//        case .green:
-//            greenLight.alpha = 1
-//            activeLight = .red
-//        }
+        switch activeLight {
+        case .red:
+            redLight.alpha = 1
+            activeLight = .yellow
+        case .yellow:
+            yellowLight.alpha = 1
+            activeLight = .green
+        case .green:
+            greenLight.alpha = 1
+            activeLight = .red
+        }
     }
     
     func setStartAlpha() {
@@ -68,10 +56,10 @@ class ViewController: UIViewController {
         startButton.layer.cornerRadius = 15
     }
     
-//    enum ActiveLight {
-//        case red
-//        case yellow
-//        case green
-//    }
+    enum ActiveLight {
+        case red
+        case yellow
+        case green
+    }
 }
 
